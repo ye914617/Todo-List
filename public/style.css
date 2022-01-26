@@ -38,13 +38,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
   background-color: var(--darkest);
   border-radius: 1rem;
   margin-bottom: 1rem;
 }
 .todo:hover {
   opacity: 0.8;
+}
+.todo a {
+  padding: 1rem;
 }
 .lame {
   font-size: 2rem;

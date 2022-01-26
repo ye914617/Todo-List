@@ -25,27 +25,6 @@ mongoose
 //listen request
 app.listen(3000);
 
-// app.get("/blog", (req, res) => {
-//   const blog = new Blog({
-//     title: "2",
-//     snippet: "welcome",
-//     body: "see more",
-//   });
-//   blog
-//     .save()
-//     .then((result) => {
-//       res.send(result);
-//     })
-//     .catch((err) => console.log(err));
-// });
-
-// app.get("/allblogs", (req, res) => {
-//   Blog.find()
-//     .then((result) => {
-//       res.send(result);
-//     })
-//     .catch((err) => console.log(err));
-// });
 
 app.get("/", (req, res) => {
   Blog.find()

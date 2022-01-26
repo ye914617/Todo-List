@@ -24,7 +24,7 @@
 
     <!-- Edit -->
     <div class="hidden edit-form">
-      <form action="/<%=todo._id%>">
+      <form>
         <label for="title" class="label">Title</label><br />
         <input
           type="text"
@@ -43,7 +43,7 @@
           name="body"
         ></textarea
         ><br />
-        <button class="update-btn">Update</button>
+        <button type="submit" class="update-btn">Update</button>
       </form>
     </div>
     <button class="home-btn">
@@ -74,7 +74,7 @@
       updateBtn.addEventListener("click", (e) => {
         const editTitle = document.querySelector(".edit-title").value;
         const editContent = document.querySelector(".edit-content").value;
-        // if ((editTitle = "")) return;
+        if (editTitle == "") return;
         const endpoint = `/${delBtn.dataset.item}`;
         fetch(endpoint, {
           method: "PUT",
