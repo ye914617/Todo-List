@@ -3,15 +3,31 @@
 <html>
   <head>
     <link href="/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <h1 class="page">Add something</h1>
     <form action="/create" method="POST">
       <label for="title" class="label">Title</label><br />
-      <input type="text" name="title" id="title" class="input-title" /><br />
+      <input
+        required
+        type="text"
+        name="title"
+        id="title"
+        class="input-title"
+      /><br />
       <label for="content" class="label">Content</label><br />
-      <textarea class="input-content" id="content" name="body"></textarea><br />
+      <textarea
+        required
+        class="input-content"
+        id="content"
+        name="body"
+      ></textarea
+      ><br />
       <button class="submit-btn">Submit</button>
     </form>
+    <button class="home-btn">
+      <a href="/">Home</a>
+    </button>
   </body>
 </html>

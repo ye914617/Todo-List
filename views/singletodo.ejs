@@ -3,6 +3,7 @@
 <html>
   <head>
     <link href="../style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script
       src="https://kit.fontawesome.com/794b8dfe32.js"
       crossorigin="anonymous"
@@ -31,9 +32,11 @@
           name="title"
           id="title"
           class="input-title edit-title"
+          required
         /><br />
         <label for="content" class="label">Content</label><br />
         <textarea
+          required
           class="input-content edit-content"
           placeholder="<%=todo.body%>"
           id="content"
@@ -43,7 +46,9 @@
         <button class="update-btn">Update</button>
       </form>
     </div>
-    <a href="/">Home</a>
+    <button class="home-btn">
+      <a href="/">Home</a>
+    </button>
     <script>
       const delBtn = document.querySelector(".icon-del");
       delBtn.addEventListener("click", (e) => {
@@ -67,9 +72,9 @@
       });
 
       updateBtn.addEventListener("click", (e) => {
-        e.preventDefault();
         const editTitle = document.querySelector(".edit-title").value;
         const editContent = document.querySelector(".edit-content").value;
+        // if ((editTitle = "")) return;
         const endpoint = `/${delBtn.dataset.item}`;
         fetch(endpoint, {
           method: "PUT",
