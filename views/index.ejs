@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- 我在這 -->
+<html>
+  <head>
+    <link href="../style.css" rel="stylesheet" />
+    <title></title>
+    <script
+      src="https://kit.fontawesome.com/794b8dfe32.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1 class="page">My 2022 Todo List</h1>
+
+    <div class="container">
+      <% if(todolist.length > 0){%> <%todolist.forEach(item=>{%>
+      <span class="todo"><a href="/<%= item._id %>"><%=item.title%></a></span>
+      <% })%> <%} else {%>
+      <p class="lame">You are lame!!</p>
+
+      <%}%>
+    </div>
+    <button class="add-btn"><a href="/create">ADD</a></button>
+    <!-- <a href="/create">Post something</a> -->
+  </body>
+</html>

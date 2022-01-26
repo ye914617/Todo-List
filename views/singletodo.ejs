@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- 我在這 -->
+<html>
+  <head>
+    <link href="../style.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/794b8dfe32.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1 class="page">Details</h1>
+    <div class="single-container">
+      <h3 class="single-title"><%=todo.title%></h3>
+      <p class="single-content"><%=todo.body%></p>
+    </div>
+    <div class="icon-container">
+      <span class="icon-edit"> <i class="fas fa-pen"></i></span>
+      <span class="icon-del" data-item="<%=todo._id%>"
+        ><i class="fas fa-trash"></i
+      ></span>
+    </div>
+
+    <!-- Edit -->
+    <div class="hidden edit-form">
+      <form action="/<%=todo._id%>">
+        <label for="title" class="label">Title</label><br />
+        <input
+          type="text"
+          placeholder="<%=todo.title%>"
+          name="title"
+          id="title"
+          class="input-title edit-title"
+        /><br />
+        <label for="content" class="label">Content</label><br />
+        <textarea
+          class="input-content edit-content"
+          placeholder="<%=todo.body%>"
+          id="content"
+          name="body"
+        ></textarea
+        ><br />
+        <button class="update-btn">Update</button>
+      </form>
+    </div>
+    <a href="/">Home</a>
+    <script>
+      const delBtn = document.querySelector(".icon-del");
+      delBtn.addEventListener("click", (e) => {
+        const endpoint = `/${delBtn.dataset.item}`;
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+          .then((result) => result.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+
+      const editBtn = document.querySelector(".icon-edit");
+      const editForm = document.querySelector(".edit-form");
+      const updateBtn = document.querySelector(".update-btn");
+
+      editBtn.addEventListener("click", (e) => {
+        editForm.classList.add("showup");
+      });
+
+      updateBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const editTitle = document.querySelector(".edit-title").value;
+        const editContent = document.querySelector(".edit-content").value;
+        const endpoint = `/${delBtn.dataset.item}`;
+        fetch(endpoint, {
+          method: "PUT",
+          body: JSON.stringify({ title: editTitle, body: editContent }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((result) => result.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+    </script>
+  </body>
+</html>
