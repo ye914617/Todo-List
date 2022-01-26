@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Blog = require("./models/blog");
+require("dotenv").config();
 
 const app = express();
 
@@ -15,8 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //database
-const dbURL =
-  "mongodb://player333:test123456@todolist-shard-00-00.7otua.mongodb.net:27017,todolist-shard-00-01.7otua.mongodb.net:27017,todolist-shard-00-02.7otua.mongodb.net:27017/whattodo?ssl=true&replicaSet=atlas-iwkza1-shard-0&authSource=admin&retryWrites=true&w=majority";
+const dbURL = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@todolist-shard-00-00.7otua.mongodb.net:27017,todolist-shard-00-01.7otua.mongodb.net:27017,todolist-shard-00-02.7otua.mongodb.net:27017/whattodo?ssl=true&replicaSet=atlas-iwkza1-shard-0&authSource=admin&retryWrites=true&w=majority`;
 mongoose
   .connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => console.log("Connected to db"))
@@ -24,7 +24,6 @@ mongoose
 
 //listen request
 app.listen(3000);
-
 
 app.get("/", (req, res) => {
   Blog.find()
