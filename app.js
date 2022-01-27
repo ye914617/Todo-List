@@ -16,14 +16,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //database
-const dbURL = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@todolist-shard-00-00.7otua.mongodb.net:27017,todolist-shard-00-01.7otua.mongodb.net:27017,todolist-shard-00-02.7otua.mongodb.net:27017/whattodo?ssl=true&replicaSet=atlas-iwkza1-shard-0&authSource=admin&retryWrites=true&w=majority`;
+const dbURL = `mongodb://player333:test123456@todolist-shard-00-00.7otua.mongodb.net:27017,todolist-shard-00-01.7otua.mongodb.net:27017,todolist-shard-00-02.7otua.mongodb.net:27017/whattodo?ssl=true&replicaSet=atlas-iwkza1-shard-0&authSource=admin&retryWrites=true&w=majority`;
 mongoose
   .connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => console.log("Connected to db"))
   .catch((err) => console.log(err));
 
 //listen request
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 app.listen(PORT);
 
 app.get("/", (req, res) => {
