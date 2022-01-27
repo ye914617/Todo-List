@@ -3,17 +3,18 @@
 ## A website built with NodeJS and use MongoDB as database, with the basic CRUD function<br>
 
 <br>
-Have some new idea? Click the add task button~
-![GITHUB](./forReadme/todoprofile.PNG)
+Have some new idea? Click the add task button
 
-Write it down and don't forget to give it some description
-![GITHUB](./forReadme/addtask.PNG)
+![GITHUB](./forReadme/todoprofile.PNG)<br>
 
-Click on any single todo title will bring you to the detail page which will show up the description along with the title
-![GITHUB](./forReadme/detail.PNG)
+Write it down and don't forget to give it some description<br>
+![GITHUB](./forReadme/addtask.PNG)<br>
 
-The pen icon's function is to edit post and trash can is delete post
-![GITHUB](./forReadme/edittodo.PNG)
+Click on any single todo title will bring you to the detail page which will show up the description along with the title<br>
+![GITHUB](./forReadme/detail.PNG)<br>
+
+The pen icon's function is to edit post and trash can is delete post<br>
+![GITHUB](./forReadme/edittodo.PNG)<br>
 
 ## Express and Mongoose<br>
 
